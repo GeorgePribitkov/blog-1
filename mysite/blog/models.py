@@ -23,8 +23,8 @@ class Post(models.Model):
     status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_post')
 
-objects = models.Manager()
-published = PublishmentManager()
+    objects = models.Manager()
+    published = PublishmentManager()
 
     class Meta:
         ordering = ['-publish']
@@ -34,3 +34,5 @@ published = PublishmentManager()
 
     def __str__(self):
         return self.title
+
+
